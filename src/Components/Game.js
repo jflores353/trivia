@@ -3,7 +3,7 @@ import Question from "./Question";
 
 const testQuestion = {
   question: "What is the largest mammal in the world?",
-  answer: ["Blue whale", "Walrus", "Giraffe", "Lion"]
+  answerChoices: ["Blue whale", "Walrus", "Giraffe", "Lion"]
 };
 
 export default class Game extends Component {
@@ -12,7 +12,16 @@ export default class Game extends Component {
     try {
       const response = await fetch(url);
       const { results } = await response.json();
+
+      const question = results.map(loadedQuestion => {
+        const formattedQuestion = {
+          question: loadedQuestion.question,
+          answerChoices: [...loadedQuestion.incorrect_answers]
+        };
+        return formattedQuestion;
+      });
       console.log(results);
+      console.log(question);
     } catch (err) {
       console.error(err);
     }
