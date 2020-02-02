@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import Question from "./Question";
 
-const testQuestion = {
-  question: "What is the largest mammal in the world?",
-  answerChoices: ["Blue whale", "Walrus", "Giraffe", "Lion"]
-};
-
 export default class Game extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +11,7 @@ export default class Game extends Component {
   }
 
   async componentDidMount() {
-    const url = `https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple`;
+    const url = `https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple`;
     try {
       const response = await fetch(url);
       const { results } = await response.json();
