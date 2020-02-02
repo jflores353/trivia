@@ -7,6 +7,14 @@ const testQuestion = {
 };
 
 export default class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: null,
+      currentQuestion: null
+    };
+  }
+
   async componentDidMount() {
     const url = `https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple`;
     try {
@@ -30,17 +38,21 @@ export default class Game extends Component {
 
         return formattedQuestion;
       });
-      console.log(results);
+      // console.log(results);
       console.log(questions);
+      // Set state to values from fetch mapping, questions : questions same as { questions } since they are the same
+      this.setState({ questions, currentQuestion: questions[0] });
     } catch (err) {
       console.error(err);
     }
   }
   render() {
     return (
-      <div>
-        <Question question={testQuestion} />
-      </div>
+      <>
+        {this.state.currentQuestion && (
+          <Question question={this.state.currentQuestion} />
+        )}
+      </>
     );
   }
 }
