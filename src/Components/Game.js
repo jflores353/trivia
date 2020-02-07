@@ -17,15 +17,32 @@ export default class Game extends Component {
       const questions = await loadQuestions();
       console.log(questions);
       // Set state to values from fetch mapping, questions : questions same as { questions } since they are the same
-      this.setState({
-        questions,
-        currentQuestion: questions[0],
-        loading: false
-      });
+      this.setState(
+        {
+          questions
+        },
+        () => {
+          this.changeQuestion();
+        }
+      );
     } catch (err) {
       console.error(err);
     }
   }
+
+  changeQuestion = () => {
+    const randomQuestionIndex = Math.floor(
+      Math.random() * this.state.questions.length
+    );
+    const currentQuestion = this.state.questions[randomQuestionIndex];
+    const remainingQuestions = [...this.state.questions];
+    this.setState({
+      questions: remainingQuestions,
+      currentQuestion: currentQuestion,
+      loading: false
+    });
+  };
+
   render() {
     return (
       <>
