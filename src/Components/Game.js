@@ -7,7 +7,8 @@ export default class Game extends Component {
     super(props);
     this.state = {
       questions: null,
-      currentQuestion: null
+      currentQuestion: null,
+      loading: true
     };
   }
 
@@ -16,7 +17,11 @@ export default class Game extends Component {
       const questions = await loadQuestions();
       console.log(questions);
       // Set state to values from fetch mapping, questions : questions same as { questions } since they are the same
-      this.setState({ questions, currentQuestion: questions[0] });
+      this.setState({
+        questions,
+        currentQuestion: questions[0],
+        loading: false
+      });
     } catch (err) {
       console.error(err);
     }
@@ -24,7 +29,8 @@ export default class Game extends Component {
   render() {
     return (
       <>
-        {this.state.currentQuestion && (
+        {this.state.loading && <div id="loader" />}
+        {!this.state.loading && this.state.currentQuestion && (
           <Question question={this.state.currentQuestion} />
         )}
       </>
