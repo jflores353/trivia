@@ -22,7 +22,7 @@ export default function Question({ question, changeQuestion }) {
   };
 
   return (
-    <div>
+    <>
       <h2>{question.question}</h2>
       {question.answerChoices.map((choice, index) => (
         <div
@@ -35,6 +35,6 @@ export default function Question({ question, changeQuestion }) {
           <p className="choice-text">{choice}</p>
         </div>
       ))}
-    </div>
+    </>
   );
 }
