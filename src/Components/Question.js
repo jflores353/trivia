@@ -13,17 +13,18 @@ export default function Question({ question, changeQuestion }) {
     const classToApply =
       selectedAnswer === question.answer ? "correct" : "incorrect";
     setClassToApply(classToApply);
+    const bonus = selectedAnswer === question.answer ? 10 : 0;
 
     setTimeout(() => {
       setSelectedAnswer(-1);
       setAnswering(false);
-      changeQuestion();
+      changeQuestion(bonus);
     }, 1000);
   };
 
   return (
     <>
-      <h2 dangerouslySetInnerHTML={{__html: question.question}}></h2>
+      <h2 dangerouslySetInnerHTML={{ __html: question.question }}></h2>
       {question.answerChoices.map((choice, index) => (
         <div
           key={index}
@@ -32,7 +33,10 @@ export default function Question({ question, changeQuestion }) {
           onClick={() => checkAnswer(index)}
         >
           <p className="choice-prefix">{index + 1}</p>
-          <p className="choice-text" dangerouslySetInnerHTML={{__html: choice}}></p>
+          <p
+            className="choice-text"
+            dangerouslySetInnerHTML={{ __html: choice }}
+          ></p>
         </div>
       ))}
     </>
