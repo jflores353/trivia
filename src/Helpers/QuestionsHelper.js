@@ -1,18 +1,18 @@
-export const loadQuestions = async (
-  amount = 10,
-  category = 9,
-  difficulty = "easy",
-  type = "multiple"
-) => {
-  const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
-  try {
-    const response = await fetch(url);
-    const { results } = await response.json();
-    return convertQuestionsFromApi(results);
-  } catch (err) {
-    console.error(err);
-  }
-};
+export const loadQuestions = async () =>
+  // amount = 3,
+  // category = 9,
+  // difficulty = "easy",
+  // type = "multiple"
+  {
+    const url = `https://opentdb.com/api.php?amount=10`;
+    try {
+      const response = await fetch(url);
+      const { results } = await response.json();
+      return convertQuestionsFromApi(results);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 const convertQuestionsFromApi = rawQuestions => {
   return rawQuestions.map(loadedQuestion => {

@@ -1,3 +1,7 @@
+:root {
+  font-size: 60%;
+}
+
 body {
   background-color: lightgray;
 }
@@ -16,7 +20,7 @@ h2 {
 
 .container {
   width: 100vw;
-  max-width: 60rem;
+  max-width: 70rem;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -39,6 +43,13 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1, 4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
 /* Form */
 form {
   width: 100%;
@@ -57,8 +68,8 @@ input {
 .choice-container {
   display: flex;
   width: 100%;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   border: 0.1rem solid black;
   background-color: white;
   margin-bottom: 0.75rem;
@@ -67,18 +78,18 @@ input {
 .choice-container:hover {
   cursor: pointer;
   background: #777;
-  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .choice-prefix {
-  padding: 1.5rem 2.5rem;
+  padding: 1rem 2rem;
   margin-left: 1.5rem;
   background-color: blue;
   color: white;
 }
 
 .choice-text {
-  padding: 1.5rem;
+  padding: 1rem;
   width: 100%;
 }
 
@@ -107,4 +118,19 @@ input {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* HUD */
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hud-prefix {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hud-main-text {
+  text-align: center;
 }
