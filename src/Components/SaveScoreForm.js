@@ -22,7 +22,6 @@ export default function SaveScoreForm({ score, scoreSaved }) {
 			console.log('Score Saved');
 			scoreSaved();
 		});
-		console.log(record);
 	};
 
 	return (
