@@ -4,12 +4,14 @@ import { useFirebase } from './Firebase/FirebaseContext';
 export default function HighScores() {
 	const firebase = useFirebase();
 	const [scores, setScores] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		firebase.scores().once('value', snapshot => {
 			const data = snapshot.val();
 			const sortedScores = formatScoreData(data);
 			setScores(sortedScores);
+			setLoading(false);
 			// console.log(sortedScores);
 		});
 	});
@@ -33,14 +35,19 @@ export default function HighScores() {
 
 	return (
 		<>
-			<h1>High Scores</h1>
-			<div id='highScoreList'>
-				{scores.map(record => (
-					<li key={record.key}>
-						{record.name} - {record.score}
-					</li>
-				))}
-			</div>
+			{loading && <div id='loader'></div>}
+			{!loading && (
+				<>
+					<h1>High Scores</h1>
+					<div id='highScoreList'>
+						{scores.map(record => (
+							<li key={record.key}>
+								{record.name} - {record.score}
+							</li>
+						))}
+					</div>
+				</>
+			)}
 		</>
 	);
 }
