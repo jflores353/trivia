@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFirebase } from './Firebase/FirebaseContext';
 
 export default function HighScores() {
 	const firebase = useFirebase();
+	const [scores, setScores] = useState([]);
 
 	useEffect(() => {
 		firebase.scores().once('value', snapshot => {
 			const data = snapshot.val();
 			const sortedScores = formatScoreData(data);
-			console.log(sortedScores);
+			setScores(sortedScores);
+			// console.log(sortedScores);
 		});
 	});
 
@@ -32,6 +34,13 @@ export default function HighScores() {
 	return (
 		<>
 			<h1>High Scores</h1>
+			<div id='highScoreList'>
+				{scores.map(record => (
+					<li key={record.key}>
+						{record.name} - {record.score}
+					</li>
+				))}
+			</div>
 		</>
 	);
 }
