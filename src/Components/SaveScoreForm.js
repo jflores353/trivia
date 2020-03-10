@@ -19,7 +19,7 @@ export default function SaveScoreForm({ score, scoreSaved }) {
 		};
 
 		firebase.scores().push(record, () => {
-			console.log('Score Saved');
+			// console.log('Score Saved');
 			scoreSaved();
 		});
 	};
