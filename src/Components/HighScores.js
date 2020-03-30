@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFirebase } from './Firebase/FirebaseContext';
+import { Link } from 'react-router-dom';
 
 export default function HighScores() {
 	const firebase = useFirebase();
@@ -40,14 +41,17 @@ export default function HighScores() {
 				<>
 					<h1>High Scores</h1>
 					<div id='highScoreList'>
-						{scores.map(record => (
+						{scores.map((record, index) => (
 							<li key={record.key}>
-								{record.name} - {record.score}
+								{index + 1}. {record.name} - {record.score}
 							</li>
 						))}
 					</div>
 				</>
 			)}
+			<Link to='/' className='btn' id='return'>
+				Back to Home
+			</Link>
 		</>
 	);
 }
