@@ -1,136 +1,173 @@
 :root {
-  font-size: 60%;
+	font-size: 60%;
 }
 
 body {
-  background-color: lightgray;
+	background-color: #0b0c10;
 }
 
 h1 {
-  font-size: 5rem;
-  color: blue;
-  margin-bottom: 1rem;
+	font-size: 5rem;
+	color: #66fcf1;
+	margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 4rem;
-  margin-bottom: 4rem;
-  font-weight: 700;
+	font-size: 4rem;
+	color: #66fcf1;
+	margin-bottom: 4rem;
+	font-weight: 700;
 }
 
 .container {
-  width: 100vw;
-  max-width: 70rem;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 2rem;
+	width: 100vw;
+	max-width: 70rem;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.title {
+	margin-bottom: 5rem;
 }
 
 .btn {
-  font-size: 2rem;
-  padding: 1rem 0;
-  width: 20rem;
-  text-align: center;
-  border: 0.1rem solid blue;
-  text-decoration: none;
-  color: blue;
-  background-color: white;
-  margin-bottom: 1rem;
+	font-size: 2rem;
+	padding: 1rem 0;
+	width: 20rem;
+	text-align: center;
+	border: 0.1rem solid #66fcf1;
+	text-decoration: none;
+	color: #c5c6c7;
+	background-color: #0b0c10;
+	margin-bottom: 2rem;
 }
 
 .btn:hover {
-  cursor: pointer;
-  box-shadow: 0 0.4rem 1, 4rem 0 rgba(86, 185, 235, 0.5);
-  transform: translateY(-0.1rem);
-  transition: transform 150ms;
+	cursor: pointer;
+	background-color: #1f2833;
+	transform: translateY(-0.1rem);
+	transition: transform 150ms;
+	color: #45a29e;
 }
 
 /* Form */
 form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 input {
-  width: 20rem;
-  font-size: 2rem;
-  border: none;
+	width: 20rem;
+	font-size: 2rem;
+	border: none;
+	margin-bottom: 2rem;
 }
 
 /* Game & Question  */
 .choice-container {
-  display: flex;
-  width: 100%;
-  font-size: 2rem;
-  font-weight: 800;
-  border: 0.1rem solid black;
-  background-color: white;
-  margin-bottom: 0.75rem;
+	display: flex;
+	width: 100%;
+	font-size: 2rem;
+	font-weight: 800;
+	border: 0.1rem solid #66fcf1;
+	background-color: #0b0c10;
+	margin-bottom: 0.75rem;
 }
 
 .choice-container:hover {
-  cursor: pointer;
-  background: #777;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	cursor: pointer;
+	background: #1f2833;
+	transform: translateY(-0.1rem);
+	transition: transform 150ms;
+	color: #45a29e;
 }
 
 .choice-prefix {
-  padding: 1rem 2rem;
-  margin-left: 1.5rem;
-  background-color: blue;
-  color: white;
+	padding: 1rem 2rem;
+	margin-left: 1.5rem;
+	background-color: #45a29e;
+	color: #c5c6c7;
 }
 
 .choice-text {
-  padding: 1rem;
-  width: 100%;
+	padding: 1rem;
+	width: 100%;
+	color: #c5c6c7;
 }
 
 .correct {
-  background-color: green;
+	background-color: #45a29e;
 }
 
 .incorrect {
-  background-color: red;
+	background-color: #fd0000;
 }
 
 /* Loader from W3 */
 #loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+	border: 16px solid #c5c6c7;
+	border-top: 16px solid #45a29e;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 /* HUD */
 #hud {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .hud-prefix {
-  text-align: center;
-  font-size: 2rem;
+	text-align: center;
+	font-size: 2rem;
+	color: #c5c6c7;
 }
 
 .hud-main-text {
-  text-align: center;
+	text-align: center;
+	color: #45a29e;
+}
+
+#progress {
+	width: 20rem;
+	height: 4rem;
+	border: 0.3rem solid #c5c6c7;
+	margin-top: 1.5rem;
+}
+
+#progressBarFull {
+	height: 4rem;
+	background-color: #45a29e;
+	width: 0%;
+}
+
+/* High Scores */
+#highScoreList li {
+	list-style: none;
+	color: #c5c6c7;
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+#return {
+	margin-top: 2rem;
 }
